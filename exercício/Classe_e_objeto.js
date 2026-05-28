@@ -21,11 +21,15 @@ function criarHeroi(){
     const nivelHeroi = document.getElementById('nivelInput').value;
     //Criando o objeto dinamicamente com os valores dos campos
     const novoHeroi = new heroi(nomeHeroi, classeHeroi, nivelHeroi);
-    const log = document.getElementById('dadosHeroi')
+    const log = document.getElementById('dadosHeroi');
 
     if(!nomeHeroi){
         document.getElementById('resultado').style.display = "block";
         log.innerHTML = "Para prosseguir, escolha um nome e um nível para seu heroi!!";
+        return;
+    }else if (nivelHeroi < 0 || !nivelHeroi){
+        document.getElementById('resultado').style.display = "block";
+        log.innerHTML = "Escolha um nível maior ou igual a 0!!";
         return;
     }
 
